@@ -48,7 +48,12 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FIN SHOP'),
+        title: Row(
+          children: [
+            Image.asset('assets/images/icon.png', width: 35, height: 35),
+            Text('FIN SHOP')
+          ],
+        ),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
