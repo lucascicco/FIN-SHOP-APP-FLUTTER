@@ -37,7 +37,7 @@ class Products with ChangeNotifier {
   }
 
   Future<void> fetchAndSetProducts([bool filterByUser = false]) async {
-    if (authToken != null && userId != null) {
+    if (authToken == null && userId == null) {
       return;
     }
 
@@ -46,13 +46,9 @@ class Products with ChangeNotifier {
     var url =
         'https://flutter-ecommerce-adab1-default-rtdb.firebaseio.com/products.json?auth=$authToken&$filterString';
 
-    print(url);
-
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
-
-      print(response.body);
 
       if (extractedData == null) {
         return;
@@ -60,8 +56,6 @@ class Products with ChangeNotifier {
 
       url =
           'https://flutter-ecommerce-adab1-default-rtdb.firebaseio.com/userFavorites/$userId.json?auth=$authToken';
-
-      print(url);
 
       final favoriteResponse = await http.get(url);
       final favoriteData = json.decode(favoriteResponse.body);

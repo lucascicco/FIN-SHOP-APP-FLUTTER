@@ -38,7 +38,7 @@ class Orders with ChangeNotifier {
   }
 
   Future<void> fetchAndSetOrders() async {
-    if (authToken != null && userId != null) {
+    if (authToken == null && userId == null) {
       return;
     }
 
