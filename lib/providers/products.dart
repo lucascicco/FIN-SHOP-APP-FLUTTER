@@ -45,17 +45,28 @@ class Products with ChangeNotifier {
         filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
     var url =
         'https://flutter-ecommerce-adab1-default-rtdb.firebaseio.com/products.json?auth=$authToken&$filterString';
+
+    print(url);
+
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
+
+      print(response.body);
+
       if (extractedData == null) {
         return;
       }
+
       url =
           'https://flutter-ecommerce-adab1-default-rtdb.firebaseio.com/userFavorites/$userId.json?auth=$authToken';
+
+      print(url);
+
       final favoriteResponse = await http.get(url);
       final favoriteData = json.decode(favoriteResponse.body);
       final List<Product> loadedProducts = [];
+
       extractedData.forEach((prodId, prodData) {
         loadedProducts.add(Product(
           id: prodId,
@@ -67,6 +78,7 @@ class Products with ChangeNotifier {
           imageUrl: prodData['imageUrl'],
         ));
       });
+
       _items = loadedProducts;
       notifyListeners();
     } catch (error) {
