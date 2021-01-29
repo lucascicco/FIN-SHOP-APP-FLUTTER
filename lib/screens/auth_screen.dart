@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,14 +42,20 @@ class AuthScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      child: Text(
-                        'FIN SHOP',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 50,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/images/icon.png',
+                                width: 60, height: 60),
+                            Text(
+                              'FIN SHOP',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 60,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ]),
                     ),
                   ),
                   Flexible(
