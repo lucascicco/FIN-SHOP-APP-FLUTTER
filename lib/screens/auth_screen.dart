@@ -176,7 +176,7 @@ class _AuthCardState extends State<AuthCard>
       } else if (error.toString().contains('EMAIL_NOT_FOUND')) {
         errorMessage = 'Nenhum usuário com esse email foi encontrado.';
       } else if (error.toString().contains('INVALID_PASSWORD')) {
-        errorMessage = 'Senha inválida.';
+        errorMessage = 'Senha inválida';
       }
       _showErrorDialog(errorMessage);
     } catch (error) {
