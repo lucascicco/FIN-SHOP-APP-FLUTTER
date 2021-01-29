@@ -73,7 +73,10 @@ class Products with ChangeNotifier {
         ));
       });
 
-      _items = loadedProducts;
+      _items = filterByUser
+          ? loadedProducts.where((element) => element.creatorId == userId)
+          : loadedProducts;
+
       notifyListeners();
     } catch (error) {
       throw (error);
@@ -96,12 +99,12 @@ class Products with ChangeNotifier {
       );
 
       final newProduct = Product(
-        title: product.title,
-        description: product.description,
-        price: product.price,
-        imageUrl: product.imageUrl,
-        id: json.decode(response.body)['name'],
-      );
+          title: product.title,
+          description: product.description,
+          price: product.price,
+          imageUrl: product.imageUrl,
+          id: json.decode(response.body)['name'],
+          creatorId: product.creatorId);
 
       _items.add(newProduct);
       // _items.insert(0, newProduct); // at the start of the list
@@ -142,7 +145,7 @@ class Products with ChangeNotifier {
     if (response.statusCode >= 400) {
       _items.insert(existingProductIndex, existingProduct);
       notifyListeners();
-      throw HttpException('Could not delete product.');
+      throw HttpException('Esse produto não pode ser deletado');
     }
     existingProduct = null;
   }
