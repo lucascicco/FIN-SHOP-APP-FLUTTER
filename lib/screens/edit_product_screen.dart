@@ -128,7 +128,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edite o produto'),
+        title: Text('Crie o produto'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save),
@@ -161,7 +161,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       },
                       onSaved: (value) {
                         _editedProduct = Product(
-                            title: value,
+                            title: value.toUpperCase(),
                             price: _editedProduct.price,
                             description: _editedProduct.description,
                             imageUrl: _editedProduct.imageUrl,
