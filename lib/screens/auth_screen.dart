@@ -168,15 +168,15 @@ class _AuthCardState extends State<AuthCard>
     } on HttpException catch (error) {
       var errorMessage = 'Autenticação falhou';
       if (error.toString().contains('EMAIL_EXISTS')) {
-        errorMessage = 'This email address is already in use.';
+        errorMessage = 'Esse email já está em uso.';
       } else if (error.toString().contains('INVALID_EMAIL')) {
-        errorMessage = 'This is not a valid email address';
+        errorMessage = 'Esse email não é válido.';
       } else if (error.toString().contains('WEAK_PASSWORD')) {
-        errorMessage = 'This password is too weak.';
+        errorMessage = 'Essa senha está muito fraca.';
       } else if (error.toString().contains('EMAIL_NOT_FOUND')) {
-        errorMessage = 'Could not find a user with that email.';
+        errorMessage = 'Nenhum usuário com esse email foi encontrado.';
       } else if (error.toString().contains('INVALID_PASSWORD')) {
-        errorMessage = 'Invalid password.';
+        errorMessage = 'Senha inválida.';
       }
       _showErrorDialog(errorMessage);
     } catch (error) {
