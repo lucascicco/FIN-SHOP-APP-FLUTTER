@@ -49,6 +49,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset('assets/images/icon.png', width: 35, height: 35),
             Text('FIN SHOP')
