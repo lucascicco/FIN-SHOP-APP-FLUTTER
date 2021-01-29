@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../models/http_exception.dart';
 
@@ -32,8 +33,9 @@ class Auth with ChangeNotifier {
 
   Future<void> _authenticate(
       String email, String password, String urlSegment) async {
+    final key = env['GOOGLE_KEY'];
     final url =
-        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/$urlSegment?key=AIzaSyCeSJB78r6KcNoPxwe-MY8xqve89dsdsxg';
+        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/$urlSegment?key=$key';
     try {
       final response = await http.post(
         url,
