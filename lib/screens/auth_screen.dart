@@ -21,17 +21,7 @@ class AuthScreen extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromRGBO(215, 117, 255, 1).withOpacity(0.5),
-                  Color.fromRGBO(255, 188, 117, 1).withOpacity(0.9),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                stops: [0, 1],
-              ),
-            ),
+            decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           ),
           SingleChildScrollView(
             child: Container(
@@ -44,14 +34,8 @@ class AuthScreen extends StatelessWidget {
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.only(bottom: 20.0),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 94.0),
-                      transform: Matrix4.rotationZ(-8 * pi / 180)
-                        ..translate(-10.0),
-                      // ..translate(-10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.deepOrange.shade900,
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 8,
@@ -63,7 +47,7 @@ class AuthScreen extends StatelessWidget {
                       child: Text(
                         'FIN SHOP',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.white,
                           fontSize: 50,
                           fontWeight: FontWeight.normal,
                         ),
@@ -223,6 +207,7 @@ class _AuthCardState extends State<AuthCard>
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -310,7 +295,7 @@ class _AuthCardState extends State<AuthCard>
                     padding:
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
                     color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).primaryTextTheme.button.color,
+                    textColor: Colors.white,
                   ),
                 FlatButton(
                   child: Text(
