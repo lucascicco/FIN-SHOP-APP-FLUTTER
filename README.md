@@ -4,7 +4,7 @@
 
 O state da aplicação é controlado pelo package **provider**, fazendo o uso das funções: MultiProvider, ChangeNotifierProvider, ChangeNotifierProxyProvider, Consumer e Provider.of<Provider>; Cada funcão está relacioda com o provider com uma funcionalidade diferente, mas todas tem acesso ao state global.
   
-Foi usado um back-end nessa aplicação, no caso, o **firebase**, em que as chamadas "API's" aconteceram dentro dos providers, e também, houve o fator de autenticação pela google. Mas, para garantir segurança da chave api da google na API de autenticação, foi usado o package flutter_dotenv, que permite criar variáveis de ambiente dentro da aplicação.
+Foi usado um back-end nessa aplicação, no caso, o **firebase** com o **http**, em que as chamadas "API's" aconteceram dentro dos providers, e também, houve o fator de autenticação pela google. Mas, para garantir segurança da chave api da google na API de autenticação, foi usado o package **flutter_dotenv**, que permite criar variáveis de ambiente dentro da aplicação.
 
 <hr/>
 
@@ -12,7 +12,7 @@ Foi usado um back-end nessa aplicação, no caso, o **firebase**, em que as cham
 
 The application state is controlled by the package **provider**, making use of the functions: MultiProvider, ChangeNotifierProvider, ChangeNotifierProxyProvider, Consumer and Provider.of <Provider>; Each function is related to the provider with a different functionality, but all have access to the global state.
   
-A back-end was used in this application, in this case, **firebase**, in which the so-called "API's" took place within the providers, and also, there was the factor of authentication by google. But, to guarantee the security of the google api key in the authentication API, the package flutter_dotenv was used, which allows to create environment variables within the application. 
+A back-end was used in this application, in this case, **firebase** with **http**, in which the so-called "API's" took place within the providers, and also, there was the factor of authentication by google. But, to guarantee the security of the google api key in the authentication API, the package **flutter_dotenv** was used, which allows to create environment variables within the application. 
 
 ## SCREENSHOTS - CAPTURAS DE TELA 
 //
