@@ -9,10 +9,17 @@ import './product.dart';
 class Products with ChangeNotifier {
   List<Product> _items = [];
   // var _showFavoritesOnly = false;
-  final String authToken;
-  final String userId;
+  String authToken;
+  String userId;
 
-  Products(this.authToken, this.userId, this._items);
+  set auth(String token) {
+    this.authToken = token;
+    notifyListeners();
+  }
+
+  set user(String id) {
+    this.userId = id;
+  }
 
   List<Product> get items {
     // if (_showFavoritesOnly) {
@@ -30,6 +37,10 @@ class Products with ChangeNotifier {
   }
 
   Future<void> fetchAndSetProducts([bool filterByUser = false]) async {
+    if (authToken != null && userId != null) {
+      return;
+    }
+
     final filterString =
         filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
     var url =

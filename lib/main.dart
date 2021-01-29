@@ -13,6 +13,7 @@ import './screens/orders_screen.dart';
 import './screens/user_products_screen.dart';
 import './screens/edit_product_screen.dart';
 import './screens/auth_screen.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 Future main() async {
@@ -29,21 +30,23 @@ class MyApp extends StatelessWidget {
           value: Auth(),
         ),
         ChangeNotifierProxyProvider<Auth, Products>(
-          update: (ctx, auth, previousProducts) => Products(
-            auth.token,
-            auth.userId,
-            previousProducts == null ? [] : previousProducts.items,
-          ),
+          create: (ctx) => Products(),
+          update: (ctx, auth, product) {
+            product..auth = auth.token;
+            product..userId = auth.userId;
+            return;
+          },
         ),
         ChangeNotifierProvider.value(
           value: Cart(),
         ),
         ChangeNotifierProxyProvider<Auth, Orders>(
-          update: (ctx, auth, previousOrders) => Orders(
-            auth.token,
-            auth.userId,
-            previousOrders == null ? [] : previousOrders.orders,
-          ),
+          create: (_) => Orders(),
+          update: (ctx, auth, orders) {
+            orders..auth = auth.token;
+            orders..userId = auth.userId;
+            return;
+          },
         ),
       ],
       child: Consumer<Auth>(
