@@ -44,29 +44,38 @@ class _OrderItemState extends State<OrderItem> {
             AnimatedContainer(
               duration: Duration(milliseconds: 300),
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-              height: _expanded ? min(widget.order.products.length * 20.0 + 10, 100) : 0,
+              height: _expanded
+                  ? min(widget.order.products.length * 20.0 + 10, 100)
+                  : 0,
               child: ListView(
                 children: widget.order.products
                     .map(
                       (prod) => Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                prod.title,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Flexible(
+                            flex: 2,
+                            child: Text(
+                              prod.title,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
-                              Text(
-                                '${prod.quantity}x \$${prod.price}',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
+                            ),
                           ),
+                          Flexible(
+                            flex: 1,
+                            child: Text(
+                              '${prod.quantity}x \$${prod.price}',
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     )
                     .toList(),
               ),
