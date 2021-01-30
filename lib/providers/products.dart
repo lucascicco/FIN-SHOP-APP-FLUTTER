@@ -44,23 +44,18 @@ class Products with ChangeNotifier {
     final filterString =
         filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
     var url =
-        'https://flutter-ecommerce-adab1-default-rtdb.firebaseio.com/products.json?auth=$authToken&$filterString';
-
+        'https://flutter-ecommerce-adab1-default-rtdb.firebaseio.com//products.json?auth=$authToken&$filterString';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
-
       if (extractedData == null) {
         return;
       }
-
       url =
-          'https://flutter-ecommerce-adab1-default-rtdb.firebaseio.com/userFavorites/$userId.json?auth=$authToken';
-
+          'https://flutter-ecommerce-adab1-default-rtdb.firebaseio.com//userFavorites/$userId.json?auth=$authToken';
       final favoriteResponse = await http.get(url);
       final favoriteData = json.decode(favoriteResponse.body);
       final List<Product> loadedProducts = [];
-
       extractedData.forEach((prodId, prodData) {
         loadedProducts.add(Product(
           id: prodId,
@@ -72,11 +67,7 @@ class Products with ChangeNotifier {
           imageUrl: prodData['imageUrl'],
         ));
       });
-
-      _items = filterByUser
-          ? loadedProducts.where((element) => element.creatorId == userId)
-          : loadedProducts;
-
+      _items = loadedProducts;
       notifyListeners();
     } catch (error) {
       throw (error);
