@@ -15,7 +15,24 @@ The application state is controlled by the package **provider**, making use of t
 A back-end was used in this application, in this case, **firebase** with **http**, in which the so-called "API's" took place within the providers, and also, there was the factor of authentication by google. But, to guarantee the security of the google api key in the authentication API, the package **flutter_dotenv** was used, which allows to create environment variables within the application. 
 
 ## SCREENSHOTS - CAPTURAS DE TELA 
-//
+
+<p align=center> 
+    <span>
+        <img src="assets/screenshots/page1.gif" width=350 height=500/>
+        <img src="assets/screenshots/page2.gif" width=350 height=500/>
+    </span>
+    <br/>
+    <span>
+        <img src="assets/screenshots/page3.gif" width=350 height=500/>
+        <img src="assets/screenshots/page4.gif" width=350 height=500/>
+    </span>
+    <br/>
+    <span>
+        <img src="assets/screenshots/page5.gif" width=350 height=500/>
+    </span>
+</p>
+
+
 
 ## WHAT I USED TO DEVELOP IT? O QUE EU USEI PARA DESENVOLVER? 
 
