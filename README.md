@@ -29,7 +29,6 @@ A back-end was used in this application, in this case, **firebase** with **http*
     <br/>
     <span>
         <img src="assets/screenshots/page5.gif" width=350 height=500/>
-        <img src="assets/screenshots/page5.gif" width=350 height=500/>
     </span>
 </p>
 
